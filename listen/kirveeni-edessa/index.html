@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kirveeni edessä — rotwurm</title>
+  <meta name="description" content="Kirveeni edessä — rotwurmin single. Kuuntele nyt Spotifyssa.">
+  <meta name="robots" content="noindex">
+
+  <meta property="og:title" content="Kirveeni edessä — rotwurm">
+  <meta property="og:description" content="rotwurmin single. Kuuntele nyt Spotifyssa.">
+  <meta property="og:type" content="music.song">
+  <meta property="og:url" content="https://rotwurm.com/listen/kirveeni-edessa/">
+  <meta property="og:image" content="https://rotwurm.com/Images/kirveeni-edessa-cover.jpg">
+  <meta property="og:image:width" content="640">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" as="image" href="/Images/kirveeni-edessa-cover.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+  <script src="/assets/meta.js"></script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=3340124956175264&ev=PageView&noscript=1"></noscript>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #070505;
+      --bg-card:     #100c0c;
+      --crimson:     #8b0000;
+      --crimson-hot: #a50e0e;
+      --crimson-dim: #4a0000;
+      --text:        #c6bdb5;
+      --text-dim:    #524946;
+      --border:      #1c1414;
+      --border-mid:  #2a1e1e;
+      --spotify:     #1db954;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IM Fell English', Georgia, serif;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 200;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 620px;
+      height: 620px;
+      background: radial-gradient(ellipse, rgba(100, 0, 0, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: min(400px, 100%);
+      text-align: center;
+    }
+
+    .wordmark {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.65em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+    }
+
+    .cover {
+      width: 100%;
+      aspect-ratio: 1;
+      display: block;
+      border: 1px solid var(--border-mid);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 80px rgba(139,0,0,0.12);
+      margin-bottom: 1.8rem;
+    }
+
+    .song-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .song-meta {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      width: 100%;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .btn:active { transform: scale(0.98); }
+
+    .btn-spotify {
+      background: var(--spotify);
+      color: #05130a;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      padding: 1.15rem 1rem;
+      border: 1px solid transparent;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 6px 30px rgba(29,185,84,0.18);
+    }
+    .btn-spotify:hover {
+      box-shadow: 0 6px 40px rgba(29,185,84,0.35);
+    }
+    .btn-spotify svg { width: 21px; height: 21px; flex-shrink: 0; }
+
+    .btn-secondary {
+      font-size: 0.56rem;
+      letter-spacing: 0.42em;
+      color: var(--text-dim);
+      border: 1px solid var(--border-mid);
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.7rem;
+      background: transparent;
+    }
+    .btn-secondary:hover {
+      border-color: var(--crimson);
+      color: var(--text);
+    }
+
+    .footnote {
+      margin-top: 2.2rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.48rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      opacity: 0.6;
+    }
+    .footnote a { color: inherit; text-decoration: none; }
+    .footnote a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <main class="card">
+    <p class="wordmark">Rotwurm</p>
+
+    <img class="cover" src="/Images/kirveeni-edessa-cover.jpg" alt="Kirveeni edessä — rotwurm kansikuva" fetchpriority="high">
+
+    <h1 class="song-title">Kirveeni edessä</h1>
+    <p class="song-meta">rotwurm · single · 2026</p>
+
+    <a class="btn btn-spotify js-outbound"
+       href="https://open.spotify.com/album/34Y4fuXY7XOwwVwZTqxwKU"
+       data-platform="spotify">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3c-.22.36-.68.47-1.03.25-2.83-1.73-6.39-2.12-10.59-1.16-.4.09-.81-.16-.9-.57-.09-.4.16-.8.57-.9 4.59-1.05 8.53-.6 11.7 1.34.36.22.47.68.25 1.04zm1.47-3.27c-.28.45-.86.59-1.3.31-3.24-1.99-8.18-2.57-12.01-1.4-.51.15-1.04-.13-1.19-.63-.15-.51.13-1.04.64-1.2 4.38-1.33 9.82-.68 13.55 1.61.44.28.58.86.31 1.31zm.13-3.4C15.24 8.33 8.83 8.12 5.12 9.24c-.6.18-1.23-.16-1.41-.75-.18-.6.16-1.23.75-1.41 4.26-1.29 11.34-1.04 15.8 1.61.54.32.71 1.01.4 1.54-.32.53-1.02.71-1.56.4z"/></svg>
+      Kuuntele Spotifyssa
+    </a>
+
+    <a class="btn btn-secondary js-outbound"
+       href="https://soundcloud.com/rotwurm/kirveeni-edessa"
+       data-platform="soundcloud">SoundCloud</a>
+
+    <a class="btn btn-secondary js-outbound"
+       href="https://www.youtube.com/watch?v=-W-ovE_j0fg"
+       data-platform="youtube">Musiikkivideo</a>
+
+    <p class="footnote"><a href="/">rotwurm.com</a> &nbsp;·&nbsp; <a href="/privacy/">privacy</a></p>
+  </main>
+
+  <script>
+    var SONG = 'kirveeni edessä';
+
+    document.querySelectorAll('.js-outbound').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (!window.metaTrackOutbound) return; /* fall back to plain link */
+        e.preventDefault();
+        window.metaTrackOutbound({
+          platform: el.dataset.platform,
+          contentName: SONG + ' – ' + el.dataset.platform,
+          url: el.href
+        });
+      });
+    });
+  </script>
+
+  <!-- Cloudflare Web Analytics (cookieless) -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "c7d2d2a686024403a65c25294e16d881"}'></script>
+
+</body>
+</html>
