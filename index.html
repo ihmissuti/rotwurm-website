@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>rotwurm</title>
-  <meta name="description" content="rotwurm — extreme music from the underground">
+  <meta name="description" content="rotwurm — extreme metal from the underground. Black metal, death metal, goregrind. Helsinki.">
   <meta property="og:title" content="rotwurm">
-  <meta property="og:description" content="extreme music from the underground">
+  <meta property="og:description" content="extreme metal from the underground">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,6 @@
       overflow-x: hidden;
     }
 
-    /* Persistent grain overlay */
     body::before {
       content: '';
       position: fixed;
@@ -110,7 +109,6 @@
       overflow: hidden;
     }
 
-    /* Deep crimson underglow */
     .hero::before {
       content: '';
       position: absolute;
@@ -129,7 +127,6 @@
       50%       { opacity: 1;   transform: translateX(-50%) scaleX(1.1); }
     }
 
-    /* Vignette */
     .hero::after {
       content: '';
       position: absolute;
@@ -243,7 +240,6 @@
       flex-shrink: 0;
     }
 
-    /* Fade-in on scroll */
     .reveal {
       opacity: 0;
       transform: translateY(22px);
@@ -257,21 +253,46 @@
     .reveal-delay-1 { transition-delay: 0.12s; }
     .reveal-delay-2 { transition-delay: 0.22s; }
     .reveal-delay-3 { transition-delay: 0.34s; }
+    .reveal-delay-4 { transition-delay: 0.46s; }
 
-    /* ─────────────────────────── MUSIC ─────────────────────────── */
+    /* ─────────────────────── LATEST RELEASE ─────────────────────── */
     #music {
       border-top: 1px solid var(--border);
     }
 
-    .track-block {
+    .latest-release {
       background: var(--bg-card);
       border: 1px solid var(--border-mid);
       padding: 2.2rem 2.2rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .latest-release::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+    }
+
+    .release-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.5rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      border: 1px solid var(--crimson-dim);
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      margin-bottom: 1.2rem;
     }
 
     .track-name {
       font-family: 'Cinzel', serif;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       color: var(--text);
@@ -315,8 +336,95 @@
       color: var(--text);
     }
 
+    /* ─────────────────────── DISCOGRAPHY ─────────────────────── */
+    .disco-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 2.8rem;
+    }
+
+    .disco-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      transition: border-color 0.3s;
+    }
+
+    .disco-card:hover {
+      border-color: var(--border-mid);
+    }
+
+    .disco-card .track-name {
+      font-size: 0.9rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .disco-card .track-meta {
+      margin-bottom: 1.2rem;
+      font-size: 0.78rem;
+    }
+
+    .disco-card .embed-wrap {
+      margin-bottom: 1rem;
+    }
+
+    .disco-card .link-row {
+      gap: 0.6rem;
+    }
+
+    .disco-card .pill-link {
+      font-size: 0.48rem;
+      padding: 0.4rem 0.9rem;
+    }
+
+    /* ─────────────────────── UPCOMING ─────────────────────── */
+    .upcoming-section {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .upcoming-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .upcoming-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .upcoming-card .track-name {
+      font-size: 0.82rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .upcoming-type {
+      font-family: 'Cinzel', serif;
+      font-size: 0.48rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .upcoming-date {
+      font-family: 'Cinzel', serif;
+      font-size: 0.52rem;
+      letter-spacing: 0.3em;
+      color: var(--crimson);
+      margin-top: 0.5rem;
+    }
+
+    /* ─────────────────────── CATALOGUE ─────────────────────── */
     .sc-block {
       margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
     }
 
     .sc-label {
@@ -326,6 +434,51 @@
       text-transform: uppercase;
       color: var(--text-dim);
       margin-bottom: 1rem;
+    }
+
+    /* ─────────────────────── VIDEOS ─────────────────────── */
+    .video-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-mid);
+      padding: 2.2rem 2.2rem 1.8rem;
+    }
+
+    .video-responsive {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 1.2rem;
+    }
+
+    .video-responsive iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .video-subtitle {
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--text-dim);
+    }
+
+    .yt-channel-link {
+      display: inline-block;
+      margin-top: 2.5rem;
     }
 
     /* ─────────────────────────── VISUALS ─────────────────────────── */
@@ -361,6 +514,18 @@
       transform: scale(1.04);
     }
 
+    /* ─────────────────────────── ABOUT ─────────────────────────── */
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.9;
+      max-width: 620px;
+    }
+
+    .about-text em {
+      color: var(--text-dim);
+    }
+
     /* ─────────────────────────── CONTACT ─────────────────────────── */
     #contact {
       text-align: center;
@@ -385,6 +550,13 @@
       margin-bottom: 1.8rem;
     }
 
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
     .contact-email-link {
       font-family: 'Cinzel', serif;
       font-size: 0.65rem;
@@ -399,6 +571,26 @@
       border-color: var(--crimson);
       color: #ddd4cb;
     }
+
+    .social-row {
+      display: flex;
+      gap: 1.6rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .social-row a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.52rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .social-row a:hover { color: var(--text-dim); }
 
     /* ─────────────────────────── FOOTER ─────────────────────────── */
     footer {
@@ -419,6 +611,7 @@
     .footer-links {
       display: flex;
       gap: 1.6rem;
+      flex-wrap: wrap;
     }
     .footer-links a {
       color: var(--text-faint);
@@ -430,6 +623,14 @@
     /* ─────────────────────────── RESPONSIVE ─────────────────────────── */
     @media (max-width: 700px) {
       .nav-links { display: none; }
+
+      .disco-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .upcoming-grid {
+        grid-template-columns: 1fr 1fr;
+      }
 
       .art-grid {
         grid-template-columns: 1fr 1fr;
@@ -446,6 +647,16 @@
 
       .section-wide-inner { padding: 0 1rem; }
       .section-wrap { padding: 4rem 1.2rem; }
+
+      .latest-release { padding: 1.5rem; }
+      .disco-card { padding: 1.2rem; }
+      .video-block { padding: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .upcoming-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -456,9 +667,9 @@
     <a href="#home" class="nav-wordmark">Rotwurm</a>
     <ul class="nav-links">
       <li><a href="#music">Music</a></li>
+      <li><a href="#videos">Videos</a></li>
       <li><a href="#visuals">Visuals</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://x.com/RotwurmKimmo" target="_blank" rel="noopener">X</a></li>
     </ul>
   </nav>
 
@@ -484,12 +695,14 @@
   <div class="section-wrap reveal" id="music">
     <p class="section-label">Music</p>
 
-    <div class="track-block reveal reveal-delay-1">
-      <p class="track-name">Underground Human Flesh Store</p>
-      <p class="track-meta">Available on Spotify</p>
+    <!-- Latest Release -->
+    <div class="latest-release reveal reveal-delay-1">
+      <span class="release-badge">Latest Release</span>
+      <p class="track-name">Thread by Thread</p>
+      <p class="track-meta">Single · 2026</p>
       <div class="embed-wrap">
         <iframe
-          src="https://open.spotify.com/embed/track/055Y9pNJyGslzqQhBR7kSW?utm_source=generator&theme=0"
+          src="https://open.spotify.com/embed/album/1kLUuVbhKTLm5cKnJ7Olx6?utm_source=generator&theme=0"
           width="100%"
           height="152"
           frameborder="0"
@@ -499,12 +712,169 @@
         ></iframe>
       </div>
       <div class="link-row">
-        <a class="pill-link" href="https://open.spotify.com/track/055Y9pNJyGslzqQhBR7kSW" target="_blank" rel="noopener">Open in Spotify</a>
+        <a class="pill-link" href="https://open.spotify.com/album/1kLUuVbhKTLm5cKnJ7Olx6" target="_blank" rel="noopener">Open in Spotify</a>
         <a class="pill-link" href="https://soundcloud.com/rotwurm" target="_blank" rel="noopener">SoundCloud</a>
       </div>
     </div>
 
-    <div class="sc-block reveal reveal-delay-2">
+    <!-- Discography Grid -->
+    <div class="disco-grid">
+      <div class="disco-card reveal reveal-delay-2">
+        <p class="track-name">Tehkää minusta urhi</p>
+        <p class="track-meta">Single · 3 tracks · 2026</p>
+        <div class="embed-wrap">
+          <iframe
+            src="https://open.spotify.com/embed/album/5U2r0EnRavoKsujuimwP5R?utm_source=generator&theme=0"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="link-row">
+          <a class="pill-link" href="https://open.spotify.com/album/5U2r0EnRavoKsujuimwP5R" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+
+      <div class="disco-card reveal reveal-delay-3">
+        <p class="track-name">Kirveeni edessä</p>
+        <p class="track-meta">Single · 2026</p>
+        <div class="embed-wrap">
+          <iframe
+            src="https://open.spotify.com/embed/album/34Y4fuXY7XOwwVwZTqxwKU?utm_source=generator&theme=0"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="link-row">
+          <a class="pill-link" href="https://open.spotify.com/album/34Y4fuXY7XOwwVwZTqxwKU" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+
+      <div class="disco-card reveal reveal-delay-4">
+        <p class="track-name">Upottakaa minut suohon</p>
+        <p class="track-meta">Single · 2026</p>
+        <div class="embed-wrap">
+          <iframe
+            src="https://open.spotify.com/embed/album/56uwU3BaLnGvvxUgUHDIoX?utm_source=generator&theme=0"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="link-row">
+          <a class="pill-link" href="https://open.spotify.com/album/56uwU3BaLnGvvxUgUHDIoX" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+
+      <div class="disco-card reveal">
+        <p class="track-name">Underground Human Flesh Store</p>
+        <p class="track-meta">Single · 2026</p>
+        <div class="embed-wrap">
+          <iframe
+            src="https://open.spotify.com/embed/track/055Y9pNJyGslzqQhBR7kSW?utm_source=generator&theme=0"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="link-row">
+          <a class="pill-link" href="https://open.spotify.com/track/055Y9pNJyGslzqQhBR7kSW" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upcoming Releases -->
+    <div class="upcoming-section reveal">
+      <p class="section-label">Upcoming</p>
+      <div class="upcoming-grid">
+        <div class="upcoming-card">
+          <p class="track-name">Black Star</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Aug 27, 2026</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Here in the Carven Hall</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Sep 11, 2026</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Among the Slain</p>
+          <p class="upcoming-type">EP</p>
+          <p class="upcoming-date">Sep 25, 2026</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">She Grinds</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Oct 16, 2026</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Passenger</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Oct 30, 2026</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Great Hunger</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Nov 6, 2026</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Blood Is the Key</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Nov 13, 2026</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">War Slime</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Nov 27, 2026</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Throat of Nothing</p>
+          <p class="upcoming-type">EP</p>
+          <p class="upcoming-date">Dec 18, 2026</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Rooms of Light</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Jan 15, 2027</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Under the Houses</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Jan 22, 2027</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Hoc est corpus meum</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Jan 22, 2027</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Ash Eucharist</p>
+          <p class="upcoming-type">Single</p>
+          <p class="upcoming-date">Jan 29, 2027</p>
+        </div>
+        <div class="upcoming-card">
+          <p class="track-name">Forest Holds Its Dead</p>
+          <p class="upcoming-type">EP</p>
+          <p class="upcoming-date">Feb 5, 2027</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full SoundCloud Catalogue -->
+    <div class="sc-block reveal">
       <p class="sc-label">Full catalogue — SoundCloud</p>
       <div class="embed-wrap">
         <iframe
@@ -517,6 +887,26 @@
         ></iframe>
       </div>
     </div>
+  </div>
+
+  <!-- ── VIDEOS ── -->
+  <div class="section-wrap reveal" id="videos">
+    <p class="section-label">Videos</p>
+
+    <div class="video-block reveal reveal-delay-1">
+      <p class="video-title">Kirveeni edessä</p>
+      <p class="video-subtitle">Official Music Video</p>
+      <div class="video-responsive">
+        <iframe
+          src="https://www.youtube.com/embed/-W-ovE_j0fg"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+
+    <a class="pill-link yt-channel-link reveal reveal-delay-2" href="https://www.youtube.com/@rotwurm" target="_blank" rel="noopener">All videos on YouTube</a>
   </div>
 
   <!-- ── VISUALS ── -->
@@ -540,6 +930,22 @@
     </div>
   </div>
 
+  <!-- ── ABOUT ── -->
+  <div class="section-wrap reveal" id="about">
+    <p class="section-label">About</p>
+    <p class="about-text reveal reveal-delay-1">
+      Rotwurm is the solo black metal project of Helsinki-based songwriter Kimmo Ihanus — an experiment
+      in converting two decades of MIDI demos and home recordings into extreme metal using AI-assisted
+      production tools. Black metal, death metal, goregrind, and industrial, built from compositions
+      originally written between 2006 and 2015.
+    </p>
+    <br>
+    <p class="about-text reveal reveal-delay-2">
+      <em>Lyrics draw from Finnish folklore and Carelian folk spells, the Dracula legend, personal
+      stories, and pure imagination. The MIDI files were always there. Suno finally gave them teeth.</em>
+    </p>
+  </div>
+
   <!-- ── CONTACT ── -->
   <div class="section-wrap reveal" id="contact">
     <img
@@ -548,20 +954,23 @@
       alt=""
       aria-hidden="true"
     >
-    <p class="contact-kicker">Contact</p>
-    <a class="contact-email-link" href="mailto:kimmo@rotwurm.com">kimmo@rotwurm.com</a>
-    <br><br>
-    <a class="contact-email-link" href="https://x.com/RotwurmKimmo" target="_blank" rel="noopener">x.com/RotwurmKimmo</a>
+    <p class="contact-kicker">Connect</p>
+    <div class="social-row">
+      <a href="https://open.spotify.com/artist/6RT5OJAnN0no67CO9kX3UA" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://soundcloud.com/rotwurm" target="_blank" rel="noopener">SoundCloud</a>
+      <a href="https://www.youtube.com/@rotwurm" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://x.com/RotwurmKimmo" target="_blank" rel="noopener">X</a>
+    </div>
   </div>
 
   <!-- ── FOOTER ── -->
   <footer>
-    <span>© Rotwurm</span>
+    <span>&copy; Rotwurm</span>
     <div class="footer-links">
+      <a href="https://open.spotify.com/artist/6RT5OJAnN0no67CO9kX3UA" target="_blank" rel="noopener">Spotify</a>
       <a href="https://soundcloud.com/rotwurm" target="_blank" rel="noopener">SoundCloud</a>
-      <a href="https://open.spotify.com/track/055Y9pNJyGslzqQhBR7kSW" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/@rotwurm" target="_blank" rel="noopener">YouTube</a>
       <a href="https://x.com/RotwurmKimmo" target="_blank" rel="noopener">X</a>
-      <a href="mailto:kimmo@rotwurm.com">kimmo@rotwurm.com</a>
     </div>
   </footer>
 
