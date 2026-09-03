@@ -9,7 +9,7 @@
  * environment variables: META_PIXEL_ID, META_CAPI_TOKEN, META_TEST_EVENT_CODE.
  */
 (function () {
-  var PIXEL_ID = '3340124956175264'; // "rotwurm.com" dataset in Kimmo Ihanus Management portfolio
+  var PIXEL_ID = '1749312865967766'; // shared "rotwurm.com" dataset in Events Manager
 
   if (PIXEL_ID) {
     /* Meta Pixel base code */
@@ -44,26 +44,36 @@
 
   /*
    * Track an outbound platform click, then navigate.
-   *   metaTrackOutbound({ platform: 'spotify', contentName: 'thread by thread – spotify', url: '...' })
+   *   metaTrackOutbound({ platform: 'spotify', track: 'thread-by-thread',
+   *                       contentName: 'thread by thread – spotify', url: '...' })
    *
-   * Spotify  -> ViewContent (the ad-optimization event)
-   * Others   -> OtherPlatformClick (custom, kept out of optimization)
+   * Spotify / HyperFollow -> ViewContent (the ad-optimization event) plus a
+   *                          dedicated ClickToSpotify funnel event.
+   * Others                -> OtherPlatformClick (custom, kept out of optimization)
    *
    * The same event_id goes to both the browser pixel and the CAPI relay,
-   * so Meta deduplicates the pair.
+   * so Meta deduplicates the ViewContent/OtherPlatformClick pair.
    */
   window.metaTrackOutbound = function (opts) {
-    var isSpotify = opts.platform === 'spotify';
-    var eventName = isSpotify ? 'ViewContent' : 'OtherPlatformClick';
+    var isPrimary = opts.platform === 'spotify' || opts.platform === 'hyperfollow';
+    var eventName = isPrimary ? 'ViewContent' : 'OtherPlatformClick';
     var eventId = uuid();
 
     if (PIXEL_ID && window.fbq) {
       window.fbq(
-        isSpotify ? 'track' : 'trackCustom',
+        isPrimary ? 'track' : 'trackCustom',
         eventName,
         { content_name: opts.contentName, content_category: 'music' },
         { eventID: eventId }
       );
+
+      /* Primary CTA funnel event for the Spotify / HyperFollow button. */
+      if (isPrimary && opts.track) {
+        window.fbq('trackCustom', 'ClickToSpotify', {
+          track: opts.track,
+          artist: 'rotwurm'
+        });
+      }
     }
 
     try {

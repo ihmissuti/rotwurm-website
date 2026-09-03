@@ -23,7 +23,7 @@
 
   <script src="/assets/meta.js"></script>
   <noscript><img height="1" width="1" style="display:none" alt=""
-    src="https://www.facebook.com/tr?id=3340124956175264&ev=PageView&noscript=1"></noscript>
+    src="https://www.facebook.com/tr?id=1749312865967766&ev=PageView&noscript=1"></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -207,6 +207,7 @@
 
   <script>
     var SONG = 'kirveeni edessä';
+    var SLUG = 'kirveeni-edessa';
 
     document.querySelectorAll('.js-outbound').forEach(function (el) {
       el.addEventListener('click', function (e) {
@@ -214,6 +215,7 @@
         e.preventDefault();
         window.metaTrackOutbound({
           platform: el.dataset.platform,
+          track: SLUG,
           contentName: SONG + ' – ' + el.dataset.platform,
           url: el.href
         });
